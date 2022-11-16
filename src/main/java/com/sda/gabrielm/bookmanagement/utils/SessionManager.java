@@ -1,6 +1,9 @@
 package com.sda.gabrielm.bookmanagement.utils;
 
 
+import com.sda.gabrielm.bookmanagement.model.Author;
+import com.sda.gabrielm.bookmanagement.model.Book;
+import com.sda.gabrielm.bookmanagement.model.Review;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -11,7 +14,7 @@ public class SessionManager extends AbstractSessionManager {
     }
 
     public static SessionFactory getSessionFactory(){
-        return INSTANCE.getSessionFactory("ex1_hibernate");
+        return INSTANCE.getSessionFactory("book_management_system");
     }
 
     public static void shutDown(){
@@ -20,6 +23,9 @@ public class SessionManager extends AbstractSessionManager {
 
     protected void setAnnotatedClasses(Configuration configuration){
       // Hibernate model will be added here
+        configuration.addAnnotatedClass(Author.class);
+        configuration.addAnnotatedClass(Book.class);
+        configuration.addAnnotatedClass(Review.class);
 
     }
 }

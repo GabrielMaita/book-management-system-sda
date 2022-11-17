@@ -16,7 +16,7 @@ public class Main {
         AuthorController authorController = new AuthorController((new AuthorServiceImpl((new AuthorRepositoryImpl()))));
         Scanner scanner = new Scanner(System.in);
 
-        UserOption userOption = UserOption.UNKNOWN ;
+        UserOption userOption ;
         do {
             UserOption.printAllOptions();
             System.out.println("please select an option!");
@@ -33,6 +33,9 @@ public class Main {
                     break;
                 case SHOW_ALL_AUTHORS:
                     authorController.showAllAuthors();
+                    break;
+                case UPDATE_AUTHOR:
+                    authorController.updateAuthor();
                     break;
                 case EXIT:
                     System.out.println("Goodbye!");

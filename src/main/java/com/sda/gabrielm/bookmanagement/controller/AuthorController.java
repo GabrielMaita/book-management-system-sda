@@ -1,6 +1,7 @@
 package com.sda.gabrielm.bookmanagement.controller;
 
 import com.sda.gabrielm.bookmanagement.service.AuthorService;
+import com.sda.gabrielm.bookmanagement.service.exceptions.EntityNotFoundException;
 import com.sda.gabrielm.bookmanagement.service.exceptions.InvalidParameterException;
 
 import java.nio.channels.ScatteringByteChannel;
@@ -31,14 +32,33 @@ public class AuthorController {
         }
     }
 
-    public void showAllAuthors(){
+    public void updateAuthor() {
+        try {
+            System.out.println("Please insert an author id ! ");
+            int authorId = Integer.parseInt(scanner.nextLine());
+            System.out.println("Please insert an author first name");
+            String firstName = scanner.nextLine();
+            System.out.println("Please insert an author last name");
+            String lastName = scanner.nextLine();
+            authorService.updateAuthor(authorId, firstName, lastName);
+            System.out.println("Author was updated");
+        } catch (InvalidParameterException | EntityNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Provided author Id is not a number");
+        } catch (Exception e) {
+            System.out.println("Internal server error");
+        }
+    }
+
+    public void showAllAuthors() {
         authorService.getAllAuthors().stream().forEach(author ->
-                        System.out.println("Author with id: "
-                                + author.getId()
-                                + " lastname "
-                                + author.getLastname()
-                                +" firstname "
-                                + author.getFirstname()
+                System.out.println("Author with id: "
+                        + author.getId()
+                        + " lastname "
+                        + author.getLastname()
+                        + " firstname "
+                        + author.getFirstname()
                 ));
     }
 }

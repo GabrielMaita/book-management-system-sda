@@ -4,6 +4,8 @@ import com.sda.gabrielm.bookmanagement.model.Author;
 import com.sda.gabrielm.bookmanagement.repository.AuthorRepository;
 import com.sda.gabrielm.bookmanagement.service.exceptions.InvalidParameterException;
 
+import java.util.List;
+
 public class AuthorServiceImpl implements AuthorService {
     private final AuthorRepository authorRepository;
 
@@ -23,5 +25,8 @@ public class AuthorServiceImpl implements AuthorService {
 
     }
 
-
+    @Override
+    public List<Author> getAllAuthors() {
+        return authorRepository.findAll();
+    }
 }

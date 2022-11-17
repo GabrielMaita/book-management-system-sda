@@ -30,4 +30,15 @@ public class AuthorController {
             System.out.println("Internal server error");
         }
     }
+
+    public void showAllAuthors(){
+        authorService.getAllAuthors().stream().forEach(author ->
+                        System.out.println("Author with id: "
+                                + author.getId()
+                                + " lastname "
+                                + author.getLastname()
+                                +" firstname "
+                                + author.getFirstname()
+                ));
+    }
 }

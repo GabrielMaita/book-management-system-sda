@@ -4,8 +4,10 @@ import jdk.swing.interop.SwingInterOpUtils;
 
 public enum UserOption {
     CREATE_AUTHOR(1, "Create author"),
+    SHOW_ALL_AUTHORS(2, "display all authors"),
     EXIT(99, "Exit"),
-    UNKNOWN(100, "unknown option");
+
+    UNKNOWN(100,"unknown option") ;
 
     private int numericOption;
     private String displayValue;

@@ -1,17 +1,22 @@
 package com.sda.gabrielm.bookmanagement;
 
+import com.sda.gabrielm.bookmanagement.controller.AuthorController;
 import com.sda.gabrielm.bookmanagement.menu.UserOption;
+import com.sda.gabrielm.bookmanagement.repository.AuthorRepositoryImpl;
+import com.sda.gabrielm.bookmanagement.service.AuthorServiceImpl;
+import com.sda.gabrielm.bookmanagement.service.exceptions.InvalidParameterException;
 import com.sda.gabrielm.bookmanagement.utils.SessionManager;
 
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidParameterException {
 
         SessionManager.getSessionFactory();
+        AuthorController authorController = new AuthorController((new AuthorServiceImpl((new AuthorRepositoryImpl()))));
         Scanner scanner = new Scanner(System.in);
 
-        UserOption userOption ;
+        UserOption userOption = UserOption.UNKNOWN ;
         do {
             UserOption.printAllOptions();
             System.out.println("please select an option!");
@@ -24,7 +29,7 @@ public class Main {
 
             switch (userOption){
                 case CREATE_AUTHOR:
-                    System.out.println("Not implemented");
+                  authorController.createAuthor();
                     break;
                 case EXIT:
                     System.out.println("Goodbye!");

@@ -3,7 +3,9 @@ package com.sda.gabrielm.bookmanagement;
 import com.sda.gabrielm.bookmanagement.controller.AuthorController;
 import com.sda.gabrielm.bookmanagement.controller.BookController;
 import com.sda.gabrielm.bookmanagement.menu.UserOption;
+import com.sda.gabrielm.bookmanagement.model.Book;
 import com.sda.gabrielm.bookmanagement.repository.AuthorRepositoryImpl;
+import com.sda.gabrielm.bookmanagement.repository.BookRepository;
 import com.sda.gabrielm.bookmanagement.repository.BookRepositoryImpl;
 import com.sda.gabrielm.bookmanagement.service.AuthorServiceImpl;
 import com.sda.gabrielm.bookmanagement.service.exceptions.BookServiceImpl;
@@ -11,10 +13,12 @@ import com.sda.gabrielm.bookmanagement.service.exceptions.EntityNotFoundExceptio
 import com.sda.gabrielm.bookmanagement.service.exceptions.InvalidParameterException;
 import com.sda.gabrielm.bookmanagement.utils.SessionManager;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws EntityNotFoundException {
+    public static void main(String[] args) throws EntityNotFoundException, InvalidParameterException {
         SessionManager.getSessionFactory();
         AuthorController authorController = new AuthorController(new AuthorServiceImpl(new AuthorRepositoryImpl()));
         BookController bookController = new BookController(new BookServiceImpl(new BookRepositoryImpl (), new AuthorRepositoryImpl()));

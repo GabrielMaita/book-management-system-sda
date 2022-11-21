@@ -34,6 +34,14 @@ public class BookController {
         }
     }
 
+    public Scanner getScanner() {
+        return scanner;
+    }
+
+    public BookService getBookService() {
+        return bookService;
+    }
+
     public void showAllBooks() {
         bookService.getAllBooks().stream().forEach(book ->
                 System.out.println(

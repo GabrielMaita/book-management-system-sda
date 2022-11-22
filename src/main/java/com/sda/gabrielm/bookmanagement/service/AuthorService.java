@@ -4,6 +4,7 @@ import com.sda.gabrielm.bookmanagement.model.Author;
 import com.sda.gabrielm.bookmanagement.service.exceptions.EntityNotFoundException;
 import com.sda.gabrielm.bookmanagement.service.exceptions.InvalidParameterException;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface AuthorService {
@@ -14,6 +15,8 @@ public interface AuthorService {
             throws InvalidParameterException, EntityNotFoundException;
 
     void deleteAuthor(int authorId) throws InvalidParameterException, EntityNotFoundException;
+
+    void importAuthors() throws IOException;
 
     List<Author> getAllAuthors();
 

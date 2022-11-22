@@ -4,6 +4,7 @@ import com.sda.gabrielm.bookmanagement.service.AuthorService;
 import com.sda.gabrielm.bookmanagement.service.exceptions.EntityNotFoundException;
 import com.sda.gabrielm.bookmanagement.service.exceptions.InvalidParameterException;
 
+import java.io.IOException;
 import java.nio.channels.ScatteringByteChannel;
 import java.util.Scanner;
 
@@ -67,7 +68,15 @@ public class AuthorController {
         }
     }
 
-
+    public void importAuthors() {
+        try {
+            System.out.println("Author import started! ");
+            authorService.importAuthors();
+            System.out.println("Author import finished ");
+        } catch (IOException e) {
+            System.out.println("Internal server error, import failed! ");
+        }
+    }
 
 
     public void showAllAuthors() {

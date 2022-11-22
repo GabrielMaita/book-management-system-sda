@@ -8,22 +8,27 @@ public enum UserOption {
     UPDATE_AUTHOR(3, "Update author"),
     DELETE_AUTHOR(4, "Delete author"),
     CREATE_BOOK(5, "Create book"),
-    SHOW_ALL_BOOKS(6,"Display all books"),
+    SHOW_ALL_BOOKS(6, "Display all books"),
+    CREATE_REVIEW(7, "Create a book review"),
     EXIT(99, "Exit"),
     UNKNOWN(100, "Unknown option");
 
     private int numericOption;
     private String displayValue;
+
     UserOption(int numericOption, String displayValue) {
         this.numericOption = numericOption;
         this.displayValue = displayValue;
     }
+
     public int getNumericOption() {
         return numericOption;
     }
+
     public String getDisplayValue() {
         return displayValue;
     }
+
     public static void printAllOptions() {
         for (UserOption value : values()) {
             if (value != UNKNOWN) {
@@ -31,9 +36,10 @@ public enum UserOption {
             }
         }
     }
-    public static UserOption findUserOption (int numericValue) {
-        for (UserOption value : values()){
-            if(value.getNumericOption() == numericValue) {
+
+    public static UserOption findUserOption(int numericValue) {
+        for (UserOption value : values()) {
+            if (value.getNumericOption() == numericValue) {
                 return value;
             }
         }

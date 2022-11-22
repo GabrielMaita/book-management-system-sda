@@ -1,10 +1,12 @@
-package com.sda.gabrielm.bookmanagement.service.exceptions;
+package com.sda.gabrielm.bookmanagement.service;
 
 import com.sda.gabrielm.bookmanagement.model.Author;
 import com.sda.gabrielm.bookmanagement.model.Book;
 import com.sda.gabrielm.bookmanagement.repository.AuthorRepository;
 import com.sda.gabrielm.bookmanagement.repository.BookRepository;
-import com.sda.gabrielm.bookmanagement.repository.BookRepositoryImpl;
+import com.sda.gabrielm.bookmanagement.service.exceptions.EntityNotFoundException;
+import com.sda.gabrielm.bookmanagement.service.exceptions.InvalidParameterException;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -13,7 +15,7 @@ import java.util.Optional;
 public class BookServiceImpl implements BookService {
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
-    public BookServiceImpl(BookRepositoryImpl bookRepository, AuthorRepository authorRepository) {
+    public BookServiceImpl(BookRepository bookRepository, AuthorRepository authorRepository) {
         this.bookRepository = bookRepository;
         this.authorRepository = authorRepository;
     }

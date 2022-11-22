@@ -1,7 +1,6 @@
 package com.sda.gabrielm.bookmanagement.controller;
 
-import com.sda.gabrielm.bookmanagement.service.AuthorService;
-import com.sda.gabrielm.bookmanagement.service.exceptions.BookService;
+import com.sda.gabrielm.bookmanagement.service.BookService;
 import com.sda.gabrielm.bookmanagement.service.exceptions.EntityNotFoundException;
 import com.sda.gabrielm.bookmanagement.service.exceptions.InvalidParameterException;
 
@@ -47,8 +46,8 @@ public class BookController {
                 System.out.println(
                         "Book id: " + book.getId()
                                 + " title " + book.getTitle()
-                                + " author " + book.getAuthor().getFirstName()
-                                + " " + book.getAuthor().getLastName()
+                                + " author " + book.getAuthor().getFirstname()
+                                + " " + book.getAuthor().getLastname()
                 )
         );
     }
